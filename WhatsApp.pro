@@ -14,7 +14,7 @@ QML_IMPORT_PATH =
 # MOBILITY +=
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += cpp/main.cpp
 
 # Installation path
 # target.path =
@@ -24,6 +24,6 @@ include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    cpphandler.h
+    Include/cpphandler.h
 
 SOURCES += \
