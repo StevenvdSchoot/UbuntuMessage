@@ -25,5 +25,3 @@ qtcAddDeployment()
 
 HEADERS += \
     Include/cpphandler.h
-
-SOURCES += \

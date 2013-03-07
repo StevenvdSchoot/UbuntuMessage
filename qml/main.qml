@@ -13,6 +13,7 @@ MainView {
     height: units.gu(75)
 
     Page {
+        objectName: "page"
 
         tools: ToolbarActions {
             Action {
@@ -25,67 +26,28 @@ MainView {
                     label.text = i18n.tr("Toolbar tapped")
                 }
             }
+
+            Action {
+                objectName: "contactsAction"
+
+                iconSource: Qt.resolvedUrl("img/avatar.png")
+                text: i18n.tr("Contacts")
+
+                onTriggered: {
+                    flipable.showContacts()
+                }
+            }
         }
 
         MsgFlipable {
+            objectName: "flipable"
             id: flipable
+
             anchors.fill: parent
 
-            front: Column {
-                anchors.fill: parent
-                anchors.margins: units.gu(2)
+            front: ContactsView { }
+            back: ChatView { }
 
-                Label {
-                    id: label
-                    objectName: "label"
-
-                    text: "Hello.."
-                }
-
-                Button {
-                    anchors.centerIn: parent
-                    objectName: "button"
-                    width: parent.width
-
-                    text: "Flip"
-
-                    onClicked: {
-                        flipable.flip();
-                    }
-                }
-
-            }
-
-            back: Column {
-                anchors.fill: parent
-                anchors.margins: units.gu(2)
-
-                Button {
-                    objectName: "button"
-
-                    text: "Tap me!"
-
-                    onClicked: {
-                        if(label.text=="..world!")
-                            label.text = "Hello.."
-                        else
-                            label.text = "..world!"
-                        CppHandler.test();
-                    }
-                }
-
-                Button {
-                    anchors.centerIn: parent
-                    objectName: "button"
-                    width: parent.width
-
-                    text: "Flip"
-
-                    onClicked: {
-                        flipable.flip();
-                    }
-                }
-            }
         }
 
     }
