@@ -27,3 +27,6 @@ HEADERS += \
     Include/cpphandler.h
 
 LIBS += `swiften-config --libs`
+
+HEADERS += \
+    Include/connectionHandler.h
